@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 public class MainClass
@@ -13,16 +13,13 @@ public class MainClass
     {
         List<int> list = Generated(number);
 
-
         for (int i = 0; i < list.Count; i++)
         {
             for (int j = 0; j < list.Count; j++)
             {
-                for (int k = 0; k < list.Count; k++)
-                {
-                    if ((list[i] * list[j] + list[k]) == number)
-                        Console.WriteLine($"{number} = {list[i]} * {list[j]} + {list[k]}");
-                }
+                int c = number - (list[i] * list[j]);
+                if (((list[i] * list[j] + c) == number) && list.Contains(c) && (list[i] <= list[j]))
+                    Console.WriteLine($"{number} = {list[i]} * {list[j]} + {c}");
             }
         }
     }
@@ -39,9 +36,12 @@ public class MainClass
             
             for (int i = 0; i < maxdigit; i++)
             {
-                if ((list[i] * 10 + 2) <= numbers) list.Add(list[i] * 10 + 2);
-                if ((list[i] * 10 + 3) <= numbers) list.Add(list[i] * 10 + 3);
-                if ((list[i] * 10 + 7) <= numbers) list.Add(list[i] * 10 + 7);
+                if ((list[i] * 10 + 2) <= numbers && !list.Contains(list[i] * 10 + 2)) 
+                    list.Add(list[i] * 10 + 2);
+                if ((list[i] * 10 + 3) <= numbers && !list.Contains(list[i] * 10 + 3))
+                    list.Add(list[i] * 10 + 3);
+                if ((list[i] * 10 + 7) <= numbers && !list.Contains(list[i] * 10 + 7))
+                    list.Add(list[i] * 10 + 7);
             }
         }
         return list;
