@@ -1,6 +1,18 @@
 using System;
 using System.Collections.Generic;
 
+/*
+ * Problem: 
+ * Find all ways to represent a given number as a * b + c.
+ * The numbers a, b, and c must consist ONLY of the digits: 2, 3, and 7.
+ * Only addition (+) and multiplication (*) operations are allowed.
+ * 
+ * Output requirements:
+ * - Print combinations in ascending order of the first multiplier (a).
+ * - If 'a' is equal, sort by the second multiplier (b) in ascending order.
+ * - Do not output permutations (e.g., if a * b is printed, do not print b * a).
+ */
+
 public class MainClass
 {
     public static void Main()
@@ -47,3 +59,4 @@ public class MainClass
         return list;
     }
 }
+
