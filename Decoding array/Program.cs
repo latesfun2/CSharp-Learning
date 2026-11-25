@@ -1,11 +1,13 @@
 /*
  * Task: Delta Decoding Utility
  * 
- * Description:
- * Reconstructs an original numerical sequence from its delta-encoded representation.
+ * [EN] Reconstructs an original numerical sequence from its delta-encoded representation.
  * The initial value is not known, but the minimum value of the original sequence is provided.
  * 
- * Input: an array of deltas and the minimum value of the original sequence.
+ * [RU] Восстанавливает исходную числовую последовательность из дельта-кодированного представления.
+ * Начальное значение неизвестно, но дано минимальное значение исходной последовательности.
+ * 
+ * Input: an array of deltas (originalArray) and the minimum value (minNumbers).
  * Output: the reconstructed sequence printed to the console.
  */
 
