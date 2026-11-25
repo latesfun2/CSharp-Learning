@@ -1,12 +1,12 @@
 /*
- * Task: Delta Decoding (Uncle Vasya's Inventory)
+ * Task: Delta Decoding Utility
  * 
- * Uncle Vasya recorded only the differences between numbers (delta encoding), 
- * but forgot to write down the first initial number. 
- * He remembered the minimum number in the sequence (minNumbers).
+ * Description:
+ * Reconstructs an original numerical sequence from its delta-encoded representation.
+ * The initial value is not known, but the minimum value of the original sequence is provided.
  * 
- * This method reconstructs the original sequence from the deltas and the minimum value,
- * and outputs it to the console.
+ * Input: an array of deltas and the minimum value of the original sequence.
+ * Output: the reconstructed sequence printed to the console.
  */
 
 public static void DecodeDelta(int[] originalArray, int minNumbers)
