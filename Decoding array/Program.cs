@@ -1,30 +1,29 @@
-using System;
+/*
+ * Task: Delta Decoding (Uncle Vasya's Inventory)
+ * 
+ * Uncle Vasya recorded only the differences between numbers (delta encoding), 
+ * but forgot to write down the first initial number. 
+ * He remembered the minimum number in the sequence (minNumbers).
+ * 
+ * This method reconstructs the original sequence from the deltas and the minimum value,
+ * and outputs it to the console.
+ */
 
-public class MainClass
+public static void DecodeDelta(int[] originalArray, int minNumbers)
 {
-    public static void Main()
-    {
-        int hourHandAmount = 1468;
-        int[] vasyaArray = { 27, -15, 2, 22, 12, -55, 11 };
-        AhShitHereWeGoAgain(vasyaArray, hourHandAmount);
+    int[] result = new int[originalArray.Length+1];
+    result[0] = minNumbers;
+    int resultLength = result.Length;
+    for (int i = 1; i < resultLength; i++)
+        result[i] = originalArray[i-1] + result[i-1];
 
-    }
-    public static void AhShitHereWeGoAgain(int[] vasyaArray, int hourHandAmount)
-    {
-        int[] result = new int[vasyaArray.Length+1];
-        result[0] = hourHandAmount;
-        int resultLength = result.Length;
-        for (int i = 1; i < resultLength; i++)
-            result[i] = vasyaArray[i-1] + result[i-1];
+    int minValue = result[0];
+    for (int i = 1; i < result.Length; i++)
+        if (result[i] < minValue)
+            minValue = result[i];
+    
+    int shift = minNumbers - minValue;
 
-        int minValue = result[0];
-        for (int i = 1; i < result.Length; i++)
-            if (result[i] < minValue)
-                minValue = result[i];
-        
-        int shift = hourHandAmount - minValue;
-
-        foreach (int x in result)
-            Console.Write((x + shift) + " ");
-    }
+    foreach (int x in result)
+        Console.Write((x + shift) + " ");
 }
