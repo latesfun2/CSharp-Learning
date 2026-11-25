@@ -36,11 +36,7 @@ public class MainClass
 
         int hours = time / 60;
         int minutes = time % 60;
-
-        while (hours > 12)
-        {
-            hours -= 12;
-        }
+        hours %= 12;
 
         if (minutes >= 10)
             Console.WriteLine(hours + ":" + minutes);
